@@ -17,6 +17,17 @@
 #define FPS            60
 #define FRAME_DELAY    (1000 / FPS)
 
+// road layout
+#define ROAD_LEFT      200
+#define ROAD_RIGHT     600
+#define ROAD_WIDTH     (ROAD_RIGHT - ROAD_LEFT)
+#define NUM_LANES      3
+#define LANE_WIDTH     (ROAD_WIDTH / NUM_LANES)
+
+#define LANE_LINE_W    4
+#define LANE_LINE_H    40
+#define LANE_LINE_GAP  30
+
 typedef enum {
     STATE_START,
     STATE_PLAYING,
