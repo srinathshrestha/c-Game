@@ -17,7 +17,6 @@
 #define FPS            60
 #define FRAME_DELAY    (1000 / FPS)
 
-// road layout
 #define ROAD_LEFT      200
 #define ROAD_RIGHT     600
 #define ROAD_WIDTH     (ROAD_RIGHT - ROAD_LEFT)
@@ -27,6 +26,21 @@
 #define LANE_LINE_W    4
 #define LANE_LINE_H    40
 #define LANE_LINE_GAP  30
+
+#define PLAYER_SPEED   6
+#define PLAYER_START_Y (WINDOW_HEIGHT - 130)
+
+#define STARTING_LIVES 3
+#define SCORE_PER_FRAME    1
+#define DIFFICULTY_STEP    500
+#define SPEED_INCREMENT    1
+
+#define SPRITE_PLAYER      "assets/sprites/player_car.png"
+#define SPRITE_ENEMY_1     "assets/sprites/enemy_car_1.png"
+#define SPRITE_ENEMY_2     "assets/sprites/enemy_car_2.png"
+#define SPRITE_ENEMY_3     "assets/sprites/enemy_car_3.png"
+#define FONT_PATH          "assets/font.ttf"
+#define FONT_SIZE          24
 
 typedef enum {
     STATE_START,
