@@ -39,14 +39,14 @@
 #define DIFFICULTY_STEP    500
 #define SPEED_INCREMENT    1
 
-#define COLOR_GRASS_R  20
-#define COLOR_GRASS_G  20
-#define COLOR_GRASS_B  20
+#define COLOR_GRASS_R  58
+#define COLOR_GRASS_G  135
+#define COLOR_GRASS_B  52
 #define COLOR_GRASS_A  255
 
-#define COLOR_ROAD_R   30
-#define COLOR_ROAD_G   30
-#define COLOR_ROAD_B   30
+#define COLOR_ROAD_R   80
+#define COLOR_ROAD_G   80
+#define COLOR_ROAD_B   80
 #define COLOR_ROAD_A   255
 
 #define COLOR_LANE_R   255
