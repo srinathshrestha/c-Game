@@ -65,7 +65,8 @@ void enemy_draw(SDL_Renderer *renderer, EnemySystem *es)
         SDL_Texture *tex = es->textures[e->variant];
         if (!tex) continue;
         SDL_Rect dest = { (int)e->x, (int)e->y, e->w, e->h };
-        SDL_RenderCopy(renderer, tex, NULL, &dest);
+        // flip so they look like oncoming traffic
+        SDL_RenderCopyEx(renderer, tex, NULL, &dest, 0.0, NULL, SDL_FLIP_VERTICAL);
     }
 }
 
