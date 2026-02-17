@@ -5,11 +5,9 @@
 void player_init(Player *player, SDL_Renderer *renderer)
 {
     player->texture = texture_load(renderer, SPRITE_PLAYER);
-    if (player->texture)
-        SDL_QueryTexture(player->texture, NULL, NULL, &player->w, &player->h);
-    else {
-        player->w = 64;
-        player->h = 100;
+    // use fixed draw size instead of actual sprite dimensions
+    player->w = CAR_DRAW_W;
+    player->h = CAR_DRAW_H;
     }
     player_reset(player);
 }
@@ -42,7 +40,9 @@ void player_draw(SDL_Renderer *renderer, Player *player)
 
 void player_cleanup(Player *player)
 {
-    if (player->texture) {
+    // use fixed draw size instead of actual sprite dimensions
+    player->w = CAR_DRAW_W;
+    player->h = CAR_DRAW_H;
         SDL_DestroyTexture(player->texture);
         player->texture = NULL;
     }

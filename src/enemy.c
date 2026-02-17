@@ -10,9 +10,9 @@ void enemy_init(EnemySystem *es, SDL_Renderer *renderer)
 {
     for (int i = 0; i < ENEMY_VARIANTS; i++) {
         es->textures[i] = texture_load(renderer, ENEMY_PATHS[i]);
-        if (es->textures[i])
-            SDL_QueryTexture(es->textures[i], NULL, NULL, &es->tex_w[i], &es->tex_h[i]);
-        else { es->tex_w[i] = 64; es->tex_h[i] = 100; }
+        es->tex_w[i] = CAR_DRAW_W;
+        es->tex_h[i] = CAR_DRAW_H;
+        //if (es->textures[i])
     }
     enemy_reset(es);
 }
@@ -78,7 +78,9 @@ SDL_Rect enemy_get_rect(Enemy *e)
 void enemy_cleanup(EnemySystem *es)
 {
     for (int i = 0; i < ENEMY_VARIANTS; i++) {
-        if (es->textures[i]) {
+        es->tex_w[i] = CAR_DRAW_W;
+        es->tex_h[i] = CAR_DRAW_H;
+        //if (es->textures[i]) {
             SDL_DestroyTexture(es->textures[i]);
             es->textures[i] = NULL;
         }

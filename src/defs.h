@@ -27,6 +27,10 @@
 #define LANE_LINE_H    40
 #define LANE_LINE_GAP  30
 
+// sprites are huge (~160x350) so we draw em at this size instead
+#define CAR_DRAW_W     50
+#define CAR_DRAW_H     100
+
 #define PLAYER_SPEED   6
 #define PLAYER_START_Y (WINDOW_HEIGHT - 130)
 
