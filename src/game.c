@@ -10,7 +10,7 @@ static void check_collisions(Game *game);
 
 bool game_init(Game *game)
 {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {
         printf("ERROR: SDL_Init: %s\n", SDL_GetError());
         return false;
     }
@@ -38,6 +38,8 @@ bool game_init(Game *game)
     player_init(&game->player, game->renderer);
     enemy_init(&game->enemies, game->renderer);
     road_init(&game->road);
+    audio_set_playing(&game->audio, true);
+    audio_init(&game->audio);
     srand((unsigned int)time(NULL));
 
     game->high_score = 0;
@@ -69,6 +71,8 @@ static void game_reset(Game *game)
     player_reset(&game->player);
     enemy_reset(&game->enemies);
     road_init(&game->road);
+    audio_set_playing(&game->audio, true);
+    audio_init(&game->audio);
 }
 
 static void handle_events(Game *game)
@@ -129,6 +133,7 @@ static void check_collisions(Game *game)
         if (game->lives <= 0) {
             if (game->score > game->high_score) game->high_score = game->score;
             game->state = STATE_GAMEOVER;
+            audio_set_playing(&game->audio, false);
             return;
         }
         player_reset(&game->player);
@@ -171,6 +176,7 @@ static void render(Game *game)
 
 void game_cleanup(Game *game)
 {
+    audio_cleanup(&game->audio);
     player_cleanup(&game->player);
     enemy_cleanup(&game->enemies);
     if (game->font) { TTF_CloseFont(game->font); game->font = NULL; }

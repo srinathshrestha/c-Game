@@ -5,6 +5,7 @@
 #include "player.h"
 #include "enemy.h"
 #include "road.h"
+#include "audio.h"
 
 typedef struct Game {
     SDL_Window   *window;
@@ -13,6 +14,7 @@ typedef struct Game {
     Player      player;
     EnemySystem enemies;
     Road        road;
+    Audio       audio;
     GameState state;
     int       score;
     int       lives;

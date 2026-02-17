@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
 SDL_CFLAGS = $(shell sdl2-config --cflags)
-SDL_LIBS = $(shell sdl2-config --libs) -lSDL2_image -lSDL2_ttf
+SDL_LIBS = $(shell sdl2-config --libs) -lSDL2_image -lSDL2_ttf -lm
 SRC = $(wildcard src/*.c)
 TARGET = car_game
 
