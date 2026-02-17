@@ -11,7 +11,7 @@
 #define AUDIO_SAMPLE_RATE  44100
 #define AUDIO_CHANNELS     1
 #define AUDIO_SAMPLES      1024       // buffer size per callback
-#define AUDIO_VOLUME       0.35f      // keep it chill
+#define AUDIO_VOLUME       0.15f      // keep it chill
 
 #define BPM                140
 #define BEAT_SAMPLES       (AUDIO_SAMPLE_RATE * 60 / BPM)
