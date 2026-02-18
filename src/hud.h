@@ -13,6 +13,8 @@ void hud_draw_playing(SDL_Renderer *renderer, TTF_Font *font,
 
 void hud_draw_start(SDL_Renderer *renderer, TTF_Font *font);
 
+void hud_draw_paused(SDL_Renderer *renderer, TTF_Font *font);
+
 void hud_draw_gameover(SDL_Renderer *renderer, TTF_Font *font,
                        int score, int high_score);
 

@@ -83,6 +83,7 @@
 typedef enum {
     STATE_START,
     STATE_PLAYING,
+    STATE_PAUSED,
     STATE_GAMEOVER
 } GameState;
 

@@ -119,6 +119,20 @@ static void handle_events(Game *game)
             if (game->state == STATE_START || game->state == STATE_GAMEOVER)
                 game_reset(game);
             break;
+        case SDLK_p:
+            // toggle pause
+            if (game->state == STATE_PLAYING) {
+                game->state = STATE_PAUSED;
+                audio_set_playing(&game->audio, false);
+            } else if (game->state == STATE_PAUSED) {
+                game->state = STATE_PLAYING;
+                audio_set_playing(&game->audio, true);
+            }
+            break;
+        case SDLK_m:
+            // toggle music using the existing .playing flag
+            audio_set_playing(&game->audio, !game->audio.playing);
+            break;
         default:
             break;
         }
@@ -212,6 +226,14 @@ static void render(Game *game)
         player_draw(game->renderer, &game->player);
         hud_draw_playing(game->renderer, game->font,
                          game->player.texture, game->score, game->lives);
+        break;
+
+    case STATE_PAUSED:
+        enemy_draw(game->renderer, &game->enemies);
+        player_draw(game->renderer, &game->player);
+        hud_draw_playing(game->renderer, game->font,
+                         game->player.texture, game->score, game->lives);
+        hud_draw_paused(game->renderer, game->font);
         break;
 
     case STATE_GAMEOVER:

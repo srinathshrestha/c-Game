@@ -69,6 +69,21 @@ void hud_draw_start(SDL_Renderer *renderer, TTF_Font *font)
     draw_centered_text(renderer, font, "ESC to quit", cy + 100, gray);
 }
 
+void hud_draw_paused(SDL_Renderer *renderer, TTF_Font *font)
+{
+    // dim the screen a bit so the text stands out
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 120);
+    SDL_Rect overlay = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
+    SDL_RenderFillRect(renderer, &overlay);
+
+    SDL_Color white = { 255, 255, 255, 255 };
+    SDL_Color gray  = { 180, 180, 180, 255 };
+    int cy = WINDOW_HEIGHT / 2;
+
+    draw_centered_text(renderer, font, "PAUSED", cy - 30, white);
+    draw_centered_text(renderer, font, "Press P to resume", cy + 20, gray);
+}
+
 void hud_draw_gameover(SDL_Renderer *renderer, TTF_Font *font,
                        int score, int high_score)
 {
